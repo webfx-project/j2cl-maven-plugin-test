@@ -1,4 +1,4 @@
-name: Staging | Build and publish Maven site
+name: Maven Build
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 jobs:
-  site:
+  build:
     runs-on: ubuntu-latest
 
     env:
