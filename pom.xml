@@ -25,6 +25,12 @@
             <id>github-mp1-appengine-repo</id>
             <name>github.com/mP1 repository</name>
             <url>https://maven-repo-254709.appspot.com</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
 
     </repositories>
@@ -105,6 +111,12 @@
         <pluginRepository>
             <id>github-mp1-appengine-repo</id>
             <url>https://maven-repo-254709.appspot.com</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
 
     </pluginRepositories>
