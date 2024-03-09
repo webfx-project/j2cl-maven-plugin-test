@@ -48,11 +48,6 @@
     <pluginRepositories>
 
         <pluginRepository>
-            <id>github-mp1-appengine-repo</id>
-            <url>https://maven-repo-254709.appspot.com</url>
-        </pluginRepository>
-
-        <pluginRepository>
             <id>google-snapshots</id>
             <name>google-snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
@@ -106,6 +101,12 @@
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </pluginRepository>
+
+        <pluginRepository>
+            <id>github-mp1-appengine-repo</id>
+            <url>https://maven-repo-254709.appspot.com</url>
+        </pluginRepository>
+
     </pluginRepositories>
 
     <build>
