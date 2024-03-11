@@ -17,9 +17,23 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <j2cl.version>0.7-SNAPSHOT</j2cl.version>
     </properties>
 
     <repositories>
+
+        <repository>
+            <id>vertispan-releases</id>
+            <name>Vertispan hosted artifacts-releases</name>
+            <url>https://repo.vertispan.com/j2cl</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
 
         <repository>
             <id>github-mp1-appengine-repo</id>
@@ -46,7 +60,19 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
-            <version>1.2.1</version>
+            <version>1.1.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.jsinterop</groupId>
+                    <artifactId>base</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vertispan.jsinterop</groupId>
+            <artifactId>base</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
@@ -168,9 +194,11 @@
                             -->
                             <language-out>STABLE</language-out>
                             <!-- when true a sources sub-directory will appear below the main javascript -->
+<!--
                             <sourceMaps>sources/</sourceMaps>
+-->
                             <thread-pool-size>0</thread-pool-size>
-                            <entry-points>dev.webfx.j2clmavenplugintest.J2clEntryApp.entryPoint</entry-points>
+                            <entry-points>dev.webfx.j2clmavenplugintest.J2clEntryApp</entry-points>
 
                             <classpath-required>
                                 <param>walkingkooka:j2cl-uber:jar:1.0-SNAPSHOT</param>

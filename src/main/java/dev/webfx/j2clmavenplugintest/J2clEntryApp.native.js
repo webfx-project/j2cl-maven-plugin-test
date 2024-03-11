@@ -1,0 +1,1 @@
+ new J2clEntryApp().entryPoint();
