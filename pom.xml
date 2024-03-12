@@ -23,7 +23,7 @@
     <repositories>
 
         <repository>
-            <id>vertispan-releases</id>
+            <id>r1-vertispan-releases</id>
             <name>Vertispan hosted artifacts-releases</name>
             <url>https://repo.vertispan.com/j2cl</url>
             <releases>
@@ -35,7 +35,7 @@
         </repository>
 
         <repository>
-            <id>github-mp1-appengine-repo</id>
+            <id>r2-github-mp1-appengine-repo</id>
             <name>github.com/mP1 repository</name>
             <url>https://maven-repo-254709.appspot.com</url>
             <releases>
@@ -50,19 +50,34 @@
 
     <dependencies>
 
+        <!-- scope=provided becomes compile/runtime by walkingkooka:j2cl-maven-plugin and added to classpath etc during building -->
+
         <dependency>
             <groupId>walkingkooka</groupId>
-            <artifactId>j2cl-uber</artifactId>
+            <artifactId>j2cl-jre-java</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- these are repeated WITHOUT a scope=provided so they will appear at compile/runtime-->
+
+        <dependency>
+            <groupId>com.google.jsinterop</groupId>
+            <artifactId>jsinterop-annotations</artifactId>
+            <version>2.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>walkingkooka</groupId>
-            <artifactId>j2cl-uber-test</artifactId>
+            <artifactId>j2cl-gwt-internal-annotations</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.vertispan.jsinterop</groupId>
+            <artifactId>base</artifactId>
+            <version>1.0.1-1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.google.elemental2</groupId>
@@ -76,19 +91,12 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>com.vertispan.jsinterop</groupId>
-            <artifactId>base</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
     </dependencies>
 
     <pluginRepositories>
 
         <pluginRepository>
-            <id>google-snapshots</id>
-            <name>google-snapshots</name>
+            <id>pr1-google-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
             <releases>
                 <enabled>true</enabled>
@@ -99,8 +107,7 @@
         </pluginRepository>
 
         <pluginRepository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
+            <id>pr2-vertispan-releases</id>
             <url>https://repo.vertispan.com/j2cl</url>
             <releases>
                 <enabled>true</enabled>
@@ -111,8 +118,7 @@
         </pluginRepository>
 
         <pluginRepository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
+            <id>pr3-vertispan-snapshots</id>
             <url>https://repo.vertispan.com/gwt-snapshot/</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -122,7 +128,7 @@
         </pluginRepository>
 
         <pluginRepository>
-            <id>sonatype-snapshots-repo</id>
+            <id>pr4-sonatype-snapshots-repo</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -132,7 +138,7 @@
         </pluginRepository>
 
         <pluginRepository>
-            <id>sonatype-repo</id>
+            <id>pr5-sonatype-repo</id>
             <url>https://oss.sonatype.org/content/repositories/repositories</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -142,7 +148,7 @@
         </pluginRepository>
 
         <pluginRepository>
-            <id>github-mp1-appengine-repo</id>
+            <id>pr6-github-mp1-appengine-repo</id>
             <url>https://maven-repo-254709.appspot.com</url>
             <releases>
                 <enabled>false</enabled>
@@ -208,7 +214,7 @@
                             <entry-points>dev.webfx.j2clmavenplugintest.J2clEntryApp</entry-points>
 
                             <classpath-required>
-                                <param>walkingkooka:j2cl-uber:jar:1.0-SNAPSHOT</param>
+                                <param>walkingkooka:j2cl-jre-java:1.0-SNAPSHOT</param>
                             </classpath-required>
                             <ignored-dependencies/>
                             <javascript-source-required/>
